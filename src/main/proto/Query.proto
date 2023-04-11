@@ -1,0 +1,23 @@
+syntax = "proto3";
+//import "google/protobuf/struct.proto";
+
+option java_multiple_files = true;
+option java_package = "org.posicube.grpc";
+option java_outer_classname = "QueryProto";
+
+service Query {
+  rpc RequestQuery(QueryGrpcRequest) returns (QueryGrpcResponse) {
+  }
+}
+
+message QueryGrpcRequest {
+  string method = 1;
+  string url = 2;
+  string param = 3;
+  string body = 4;
+  map<string, string> header = 5;
+}
+
+message QueryGrpcResponse {
+  string body = 1;
+}

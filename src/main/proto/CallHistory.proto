@@ -1,0 +1,18 @@
+syntax = "proto3"; //proto3을 사용함
+
+option java_multiple_files = true;
+option java_package = "org.posicube.grpc";
+option java_outer_classname = "CallHistoryProto";
+
+service CallHistory {
+  rpc SendHistory (HistoryGrpcRequest) returns (HistoryGrpcResponse) {
+  }
+}
+
+message HistoryGrpcRequest {
+  string cuid = 1;
+}
+
+message HistoryGrpcResponse {
+  bool isSuccess = 1;
+}

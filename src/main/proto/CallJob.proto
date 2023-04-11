@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.posicube.grpc";
+option java_outer_classname = "CallJobProto";
+
+service CallJob {
+  rpc GenerateCallJob(CallJobGrpcRequest) returns (CallJobGrpcResponse) {}
+}
+
+message CallJobGrpcRequest {
+  string customerId = 1;
+  string customerData = 2;
+  string rawData = 3;
+}
+
+message CallJobGrpcResponse {
+  string id = 1;
+  string areaCode = 2;
+  string number = 3;
+  string prefix = 4;
+  string customerId = 5;
+  string customerData = 6;
+  string rawData = 7;
+  string campaignCallStatus = 8;
+  string campaignCallSubStatus = 9;
+  string ttsIndex = 10;
+}

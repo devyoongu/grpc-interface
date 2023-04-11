@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.posicube.grpc";
+option java_outer_classname = "CampaignProto";
+
+service Campaign {
+  rpc ReadCampaign (CampaignGrpcRequest) returns (CampaignGrpcResponse);
+}
+
+message CampaignGrpcRequest {
+  string query = 1; //쿼리 문자열
+}
+
+message CampaignResponse { //todo : grpc 네이밍으로 변경
+  string customerId = 1;
+  string campaignCallPriority = 2;
+  string campaignCallType = 3;
+  string customerCampaignId = 4;
+  string customerSubCampaignId = 5;
+  string campaignPriority = 6;
+  string campaignType = 7;
+  string campaignTypeName = 8;
+  string scenarioName = 9;
+  string rawData = 10;
+  string customerData = 11;
+  string startDate = 12;
+  string endDate = 13;
+}
+
+
+message CampaignGrpcResponse {
+  repeated CampaignResponse CampaignResponses = 1;
+}
